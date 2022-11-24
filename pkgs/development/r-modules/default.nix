@@ -73,6 +73,12 @@ let
       "http://mran.revolutionanalytics.com/snapshot/${snapshot}/src/contrib/${name}_${version}.tar.gz"
     ];
   };
+  deriveGithub= mkDerive {
+    mkHomepage = {user, repo, rev, ...}: "https://github.com/${user}/${repo}/tree/${rev}";
+    mkUrls = {user, repo, rev, ...}: [
+      "https://github.com/${user}/${repo}/archive/${rev}.tar.gz"
+    ];
+  };
 
   # Overrides package definitions with nativeBuildInputs.
   # For example,
